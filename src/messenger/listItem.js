@@ -1,4 +1,6 @@
 import React from "react";
+import { propsContext } from "./context";
+import {ACTIONS} from './reducer';
 import styled from "styled-components";
 import avatar from "../img/avatar.png";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -16,41 +18,48 @@ const Span = styled.span`
   color: #c3bfbf;
 `;
 
-export default function ListItem({ Name, lastChat, chatCount, time }) {
+export default function ListItem({ Name, lastChat, chatCount, time ,isOvered}) {
   return (
-    <div>
-        <li style={{listStyleType:"none"}}>
-      <Row className="row col-lg-12 col-md-12">
+  
+    <propsContext.Consumer>
+      {  (itemId,dispatch)=>
         <div>
-          <Image
-            className="img-responsive img-circle"
-            src={avatar}
-            alt="reza"
-          ></Image>
+          {/* onMouseOver={()=>dispatch({type:ACTIONS.COLOR_CHANGE,payload:itemId})} */}
+          <li style={{ listStyleType: "none" }} >    
+            <Row className="row col-lg-12 col-md-12">
+              <div>
+                <Image
+                  className="img-responsive img-circle"
+                  src={avatar}
+                  alt="reza"
+                ></Image>
+              </div>
+              <div className="col-md-3">
+                <span style={{ fontSize: 18, fontWeight: 600 }}>{Name}</span>
+                <div>
+                  <span>{lastChat}</span>
+                </div>
+              </div>
+              <div className="col-md-7">
+                <Span>{time}</Span>
+                <div>
+                  <span
+                    style={{
+                      backgroundColor: "#c3bfbf",
+                      borderRadius: "50%",
+                      color: "#ccc",
+                      float: "right",
+                    }}
+                  >
+                    {chatCount}
+                  </span>
+                </div>
+              </div>
+            </Row>
+          </li>
         </div>
-        <div className="col-md-3">
-          <span style={{ fontSize: 18, fontWeight: 600 }}>{Name}</span>
-          <div>
-            <span>{lastChat}</span>
-          </div>
-        </div>
-        <div className="col-md-7">
-          <Span>{time}</Span>
-          <div>
-            <span
-              style={{
-                backgroundColor: "#c3bfbf",
-                borderRadius: "50%",
-                color: "#ccc",
-                float: "right",
-              }}
-            >
-              {chatCount}
-            </span>
-          </div>
-        </div>
-      </Row>
-      </li>
-    </div>
+        
+      }
+    </propsContext.Consumer>
   );
 }

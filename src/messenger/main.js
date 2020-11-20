@@ -1,4 +1,6 @@
 import React, { useReducer } from "react";
+import {reducer} from './reducer';
+import {propsContext} from './context';
 import Head from "./head";
 import LeftSide from "./leftSide";
 import Content from "./content";
@@ -17,9 +19,11 @@ import List from "./list";
 export default function Main() {
   const [state, dispatch] = useReducer(reducer, {
     keyword: "",
+    itemId:null
   });
 
   return (
+      <propsContext.Provider value={state.keyword,dispatch,state.itemId}>
     <div>
       <Head />
       <div>
@@ -34,5 +38,6 @@ export default function Main() {
         </div>
       </div>
     </div>
+      </propsContext.Provider>
   );
 }

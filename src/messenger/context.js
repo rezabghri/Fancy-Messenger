@@ -1,11 +1,16 @@
 import React,{createContext} from 'react';
 
-export const propsContext=createContext(null);
+export const propsContext=createContext();
 
-export default function context() {
-    return (
-        <div>
-            
-        </div>
-    )
+export  function withDispatch(Component) {
+    return props=>{
+
+        (
+            <propsContext.Consumer>
+            <div>
+                {dispatch=><Component dispatch={dispatch} {...props}/>}
+            </div>
+            </propsContext.Consumer>
+        )
+    }
 }

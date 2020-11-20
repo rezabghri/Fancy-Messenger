@@ -1,40 +1,41 @@
-import React from 'react';
-import ListItem from './listItem';
-import styled from 'styled-components';
+import React from "react";
+import ListItem from "./listItem";
+import styled from "styled-components";
+import { propsContext } from "./context";
 
-
-
-
-
-const Ul=styled.ul`
-    cursor:pointer;
-`
+const Ul = styled.ul`
+  cursor: pointer;
+`;
 
 const HR = styled.hr`
   height: 1px;
   color: #e5c3c3;
 `;
 
-export default function List({data}) {
-    return (
+export default function List({ data }) {
+  return (
+    <propsContext.Consumer>
+      {(itemId)=>
         <div>
-            <Ul>
-                {data.map(item=>{
-                    return(
-                        <>
-                        <ListItem 
-                       key={item.id}
-                       Name={item.Name}
-                       lastChat={item.lastChat}
-                       time={item.time}
-                       chatCount={item.chatCount}
-                     />
-                     <HR/>
-                     </>
-                    ) 
-                })}
-
-           </Ul>
+          <Ul>
+            {data.map((item) => {
+              return (
+                <>
+                  <ListItem
+                    isOvered={itemId===item.id}
+                    key={item.id}
+                    Name={item.Name}
+                    lastChat={item.lastChat}
+                    time={item.time}
+                    chatCount={item.chatCount}
+                  />
+                  <HR />
+                </>
+              );
+            })}
+          </Ul>
         </div>
-    )
+      }
+    </propsContext.Consumer>
+  );
 }
