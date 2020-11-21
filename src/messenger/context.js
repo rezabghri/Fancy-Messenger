@@ -1,6 +1,6 @@
 import React,{createContext} from 'react';
 
-export const propsContext=createContext();
+export const PropsContext=createContext(null);
 
 export  function withDispatch(Component) {
     return props=>{

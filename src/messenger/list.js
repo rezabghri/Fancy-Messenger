@@ -1,10 +1,12 @@
 import React from "react";
 import ListItem from "./listItem";
 import styled from "styled-components";
-import { propsContext } from "./context";
+import { PropsContext } from "./context";
 
 const Ul = styled.ul`
   cursor: pointer;
+
+  
 `;
 
 const HR = styled.hr`
@@ -14,7 +16,7 @@ const HR = styled.hr`
 
 export default function List({ data }) {
   return (
-    <propsContext.Consumer>
+    <PropsContext.Consumer>
       {(itemId)=>
         <div>
           <Ul>
@@ -36,6 +38,6 @@ export default function List({ data }) {
           </Ul>
         </div>
       }
-    </propsContext.Consumer>
+    </PropsContext.Consumer>
   );
 }

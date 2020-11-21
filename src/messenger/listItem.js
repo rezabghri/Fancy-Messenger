@@ -1,11 +1,20 @@
-import React from "react";
-import { propsContext } from "./context";
-import {ACTIONS} from './reducer';
+import React, { useReducer } from "react";
+import { PropsContext } from "./context";
+import { ACTIONS } from "./reducer";
 import styled from "styled-components";
 import avatar from "../img/avatar.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const Row = styled.div``;
+const Row = styled.div`
+&:hover {
+  background-color: #0edba9;
+  transition:1s;
+}
+`;
+
+const Li = styled.li`
+
+`;
 
 const Image = styled.img`
   height: 48px;
@@ -18,14 +27,19 @@ const Span = styled.span`
   color: #c3bfbf;
 `;
 
-export default function ListItem({ Name, lastChat, chatCount, time ,isOvered}) {
+export default function ListItem({
+  Name,
+  lastChat,
+  chatCount,
+  time,
+  isOvered,
+}) {
   return (
-  
-    <propsContext.Consumer>
-      {  (itemId,dispatch)=>
+    <PropsContext.Consumer>
+      {(itemId, dispatch) => (
         <div>
           {/* onMouseOver={()=>dispatch({type:ACTIONS.COLOR_CHANGE,payload:itemId})} */}
-          <li style={{ listStyleType: "none" }} >    
+          <Li style={{ listStyleType: "none" }}>
             <Row className="row col-lg-12 col-md-12">
               <div>
                 <Image
@@ -56,10 +70,9 @@ export default function ListItem({ Name, lastChat, chatCount, time ,isOvered}) {
                 </div>
               </div>
             </Row>
-          </li>
+          </Li>
         </div>
-        
-      }
-    </propsContext.Consumer>
+      )}
+    </PropsContext.Consumer>
   );
 }

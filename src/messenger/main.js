@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 import {reducer} from './reducer';
-import {propsContext} from './context';
+import {PropsContext} from './context';
 import Head from "./head";
 import LeftSide from "./leftSide";
 import Content from "./content";
@@ -23,7 +23,7 @@ export default function Main() {
   });
 
   return (
-      <propsContext.Provider value={state.keyword,dispatch,state.itemId}>
+      <PropsContext.Provider value={state.keyword,dispatch,state.itemId}>
     <div>
       <Head />
       <div>
@@ -38,6 +38,6 @@ export default function Main() {
         </div>
       </div>
     </div>
-      </propsContext.Provider>
+      </PropsContext.Provider>
   );
 }

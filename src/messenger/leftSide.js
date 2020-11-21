@@ -16,6 +16,7 @@ const Data=[
 
 const Wrapper = styled.div`
   background-color: #f9eded;
+
 `;
 
 const HR = styled.hr`

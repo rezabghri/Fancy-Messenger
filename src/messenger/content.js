@@ -16,7 +16,7 @@ export default function Content() {
                 <HeaderContent/>
                 <ChatContent/>
 
-                <InputMessage/>
+                <InputMessage />
 
             </Wrapper>
         </div>
