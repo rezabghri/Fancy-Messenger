@@ -19,21 +19,23 @@ import List from "./list";
 export default function Main() {
   const [state, dispatch] = useReducer(reducer, {
     keyword: "",
-    itemId:null
+    itemId:null,
+    listItem:[],
+    mode:'search'
   });
-
+//keyword,dispatch,itemId,listItem,mode
   return (
-      <PropsContext.Provider value={state.keyword,dispatch,state.itemId}>
+      <PropsContext.Provider value={dispatch}>
     <div>
       <Head />
       <div>
         <div className="row">
           <div className="col-md-4">
-            <LeftSide />
+            <LeftSide mode={state.mode}/>
             {/* <List data={Data}/> */}
           </div>
           <div className="col-md-8" style={{ border: "2px solid #e5c3c3" }}>
-            <Content />
+            <Content listItem={state.listItem} />
           </div>
         </div>
       </div>

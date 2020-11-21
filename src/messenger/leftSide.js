@@ -1,9 +1,12 @@
 import React from "react";
+import {PropsContext} from './context';
 import styled from "styled-components";
 import Search from "./search";
 //import UserList from './userList';
 import List from './list';
+import { ACTIONS } from "./reducer";
 //import listItem from "./listItem";
+import InputSearch from './inputSearch';
 
 
 const Data=[
@@ -24,11 +27,24 @@ const HR = styled.hr`
   color: #e5c3c3;
 `;
 
-export default function LeftSide({data}) {
+export default function LeftSide({data,mode}) {
+
+  const dispatch=React.useContext(PropsContext);
+
+   const handleSearchClick=()=>{
+     dispatch({
+       type:ACTIONS.CHANGE_MODE,
+       payload:'input'
+     })
+   }
+
   return (
     <div>
       <Wrapper>
-        <Search />
+      {/* <Search onSearch={handleSearchClick}/> */}
+        {mode==='search'&&
+          <InputSearch onSearch={handleSearchClick}/>  }
+        {/* {mode==='input' && <InputSearch/>} */}
         <HR />
        <List  data={Data} />
         {/* <HR/> */}

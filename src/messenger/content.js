@@ -3,8 +3,11 @@ import styled from 'styled-components';
 import HeaderContent from './headerContent';
 import ChatContent from './chatContent';
 import InputMessage from './inputMessage';
+import {withDispatch,PropsContext} from './context';
 
-export default function Content() {
+export default function Content({listItem}) {
+
+    const dispatch=React.useContext(PropsContext);
 
     const Wrapper=styled.div`
       
@@ -14,7 +17,7 @@ export default function Content() {
         <div>
             <Wrapper>
                 <HeaderContent/>
-                <ChatContent/>
+                <ChatContent liItem={listItem}/>
 
                 <InputMessage />
 
@@ -22,3 +25,5 @@ export default function Content() {
         </div>
     )
 }
+
+// withDispatch(Content);
