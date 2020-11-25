@@ -28,11 +28,11 @@ const H2 = styled.h2`
 
 // `
 
-export default function Search({onSearch}) {
+export default function Search({onInputSearch}) {
 
   
   const handleSearchClick=()=>{
-       onSearch();
+       onInputSearch();
   }
 
   return (

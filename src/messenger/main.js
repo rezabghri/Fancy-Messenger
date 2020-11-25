@@ -19,10 +19,14 @@ import List from "./list";
 export default function Main() {
   const [state, dispatch] = useReducer(reducer, {
     keyword: "",
+    val:"",
     itemId:null,
     listItem:[],
     mode:'search'
   });
+
+
+
 //keyword,dispatch,itemId,listItem,mode
   return (
       <PropsContext.Provider value={dispatch}>
@@ -31,11 +35,12 @@ export default function Main() {
       <div>
         <div className="row">
           <div className="col-md-4">
-            <LeftSide mode={state.mode}/>
+            <LeftSide mode={state.mode} kw={state.val} itmId={state.itemId}/>
             {/* <List data={Data}/> */}
           </div>
           <div className="col-md-8" style={{ border: "2px solid #e5c3c3" }}>
-            <Content listItem={state.listItem} />
+            <Content listItem={state.listItem}   keyword={state.keyword} id={state.itemId}/>
+          
           </div>
         </div>
       </div>

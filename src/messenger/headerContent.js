@@ -21,7 +21,7 @@ const Span = styled.span`
   font-weight: 700;
 `;
 
-export default function HeaderContent() {
+export default function HeaderContent({Id}) {
   return (
     <div>
       <Div className="row">

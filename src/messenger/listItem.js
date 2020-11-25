@@ -32,14 +32,15 @@ export default function ListItem({
   lastChat,
   chatCount,
   time,
+  onId,
   isOvered,
 }) {
   return (
-    <PropsContext.Consumer>
-      {(itemId, dispatch) => (
+  
+     
         <div>
           {/* onMouseOver={()=>dispatch({type:ACTIONS.COLOR_CHANGE,payload:itemId})} */}
-          <Li style={{ listStyleType: "none" }}>
+          <Li style={{ listStyleType: "none" }} onClick={()=>onId()}>
             <Row className="row col-lg-12 col-md-12">
               <div>
                 <Image
@@ -72,7 +73,7 @@ export default function ListItem({
             </Row>
           </Li>
         </div>
-      )}
-    </PropsContext.Consumer>
+      
+
   );
 }

@@ -13,6 +13,16 @@ export function reducer(state,action){
              return{
                  mode:action.payload
              }
+          case ACTIONS.INPUTS_CHANGE:
+              return{
+                  ...state,
+                  val:action.payload
+              }   
+           case ACTIONS.ITEM_CLICK:
+               return{
+                   ...state,
+                   itemId:action.payload
+               }   
                 
 
          default :
@@ -24,5 +34,7 @@ export function reducer(state,action){
 export const ACTIONS={
     INPUT_CHANGE:"INPUT_CHANGE",
     FORWARD_MESSAGE:"FORWARD_MESSAGE",
-    CHANGE_MODE:"CHANGE_MODE"
+    CHANGE_MODE:"CHANGE_MODE",
+    INPUTS_CHANGE:"INPUTS_CHANGE",
+    ITEM_CLICK:"ITEM_CLICK"
 }

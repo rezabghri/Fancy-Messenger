@@ -1,7 +1,8 @@
-import React from "react";
+import React,{useContext} from "react";
 import ListItem from "./listItem";
 import styled from "styled-components";
 import { PropsContext } from "./context";
+import {ACTIONS} from './reducer';
 
 const Ul = styled.ul`
   cursor: pointer;
@@ -14,22 +15,33 @@ const HR = styled.hr`
   color: #e5c3c3;
 `;
 
-export default function List({ data }) {
+export default function List({ data,itemid}) {
+  const dispatch=useContext(PropsContext);
+
+  const handleIdClick=(id)=>{
+      const res=data.find(x=>x.ID===id);
+      
+      dispatch({
+        type:ACTIONS.ITEM_CLICK,
+        payload:res
+      })
+      console.log(res)
+  }
+
   return (
-    <PropsContext.Consumer>
-      {(itemId)=>
         <div>
           <Ul>
             {data.map((item) => {
               return (
                 <>
                   <ListItem
-                    isOvered={itemId===item.id}
+                    ID={itemid===item.id}
                     key={item.id}
                     Name={item.Name}
                     lastChat={item.lastChat}
                     time={item.time}
                     chatCount={item.chatCount}
+                    onId={handleIdClick}
                   />
                   <HR />
                 </>
@@ -37,7 +49,5 @@ export default function List({ data }) {
             })}
           </Ul>
         </div>
-      }
-    </PropsContext.Consumer>
   );
 }

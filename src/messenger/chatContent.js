@@ -38,7 +38,7 @@ export const LiItem = styled.li`
   margin-top: 105px;
 `;
 
-export default function ChatContent({ keyword,liItem=[],dispatch}) {
+export default function ChatContent({ kword,liItem=[],dispatch}) {
   return (
     // <PropsContext.Consumer>
       // {(dispatch)=>
@@ -64,9 +64,10 @@ export default function ChatContent({ keyword,liItem=[],dispatch}) {
               >
                 Hi
               </Li>
-              {liItem.map(item=>{
-                return <LiItem  style={{ justifyContent: "center"}}>{keyword}</LiItem>
-              })}
+              {/* {liItem.map(item=>{
+                return <LiItem  style={{ justifyContent: "center"}}>{kword}</LiItem>
+              })} */}
+              <liItem/>
             </ul>
           </div>
         </div>

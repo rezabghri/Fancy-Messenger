@@ -27,9 +27,16 @@ const HR = styled.hr`
   color: #e5c3c3;
 `;
 
-export default function LeftSide({data,mode}) {
+export default function LeftSide({data,mode,kw,itmId}) {
 
   const dispatch=React.useContext(PropsContext);
+
+   const handleInputSearchClick=()=>{
+     dispatch({
+       type:ACTIONS.CHANGE_MODE,
+       payload:'search'
+     })
+   }
 
    const handleSearchClick=()=>{
      dispatch({
@@ -41,12 +48,13 @@ export default function LeftSide({data,mode}) {
   return (
     <div>
       <Wrapper>
-      {/* <Search onSearch={handleSearchClick}/> */}
-        {mode==='search'&&
-          <InputSearch onSearch={handleSearchClick}/>  }
-        {/* {mode==='input' && <InputSearch/>} */}
+        {mode==='input' && <Search onInputSearch={handleInputSearchClick}/>}
+      
+         {mode==='search'&&
+          <InputSearch onSearch={handleSearchClick} kyword={kw}/>  }
+        {/* {mode==='input' && <Search/>} */} 
         <HR />
-       <List  data={Data} />
+       <List  data={Data} itemid={itmId}/>
         {/* <HR/> */}
       </Wrapper>
     </div>
