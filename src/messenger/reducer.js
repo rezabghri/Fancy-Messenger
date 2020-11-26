@@ -7,10 +7,12 @@ export function reducer(state,action){
             }
          case ACTIONS.FORWARD_MESSAGE:
                 return{
-                 keyword:action.payload
+                    ...state,
+                 listItem:action.payload
                 }
          case ACTIONS.CHANGE_MODE:
              return{
+                 ...state,
                  mode:action.payload
              }
           case ACTIONS.INPUTS_CHANGE:

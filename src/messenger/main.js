@@ -22,7 +22,14 @@ export default function Main() {
     val:"",
     itemId:null,
     listItem:[],
-    mode:'search'
+    mode:'input',
+    Data:[
+      {id:'1',Name:'Reza',lastChat:'Hi there',chatCount:10,time:'18:05'},
+      {id:'2',Name:'Mohammad',lastChat:'Hi there',chatCount:10,time:'18:05'},
+      {id:'3',Name:'Pegah',lastChat:'Hi there',chatCount:10,time:'18:05'},
+      {id:'4',Name:'Zahra',lastChat:'Hi there',chatCount:10,time:'18:05'}
+    ],
+    users:[]
   });
 
 
@@ -35,7 +42,7 @@ export default function Main() {
       <div>
         <div className="row">
           <div className="col-md-4">
-            <LeftSide mode={state.mode} kw={state.val} itmId={state.itemId}/>
+            <LeftSide mode={state.mode} kw={state.val} itmId={state.itemId} data={state.Data} user={state.users}/>
             {/* <List data={Data}/> */}
           </div>
           <div className="col-md-8" style={{ border: "2px solid #e5c3c3" }}>

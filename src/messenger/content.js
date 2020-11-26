@@ -12,7 +12,7 @@ const Wrapper=styled.div`
       
 `
 
-export default function Content({listItem,keyword,id}) {
+export default function Content({listItem=[],keyword,id}) {
 
     const dispatch=useContext(PropsContext);
 
@@ -23,18 +23,31 @@ export default function Content({listItem,keyword,id}) {
 //        })
 //    }
 
+// const handleKeyDown=(e)=>{
+//     dispatch({
+//             type:ACTIONS.FORWARD_MESSAGE,
+//               payload:keyword    
+//          })
+//         if(e.key==='Enter'){
+//          console.log("enter pressed")
+//         listItem.push(keyword);
+//         // {<LiItem liItem/>}
+// }
+// }
+
     return (
         <div>
             <Wrapper>
                 <HeaderContent Id={id}/>
                 <ChatContent liItem={listItem} />
 
-                <InputMessage   kword={keyword} />
+                <InputMessage   kword={keyword}  />
               
 
             </Wrapper>
         </div>
     )
 }
+
 
 // withDispatch(Content);

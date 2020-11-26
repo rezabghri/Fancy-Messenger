@@ -65,9 +65,9 @@ export default function ChatContent({ kword,liItem=[],dispatch}) {
                 Hi
               </Li>
               {/* {liItem.map(item=>{
-                return <LiItem  style={{ justifyContent: "center"}}>{kword}</LiItem>
+                return <LiItem  style={{ justifyContent: "center"}}>{}</LiItem>
               })} */}
-              <liItem/>
+              {/* <liItem/> */}
             </ul>
           </div>
         </div>

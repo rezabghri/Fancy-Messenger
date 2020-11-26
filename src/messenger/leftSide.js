@@ -9,12 +9,12 @@ import { ACTIONS } from "./reducer";
 import InputSearch from './inputSearch';
 
 
-const Data=[
-  {id:'1',Name:'Reza',lastChat:'Hi there',chatCount:10,time:'18:05'},
-  {id:'2',Name:'Mohammad',lastChat:'Hi there',chatCount:10,time:'18:05'},
-  {id:'3',Name:'Pegah',lastChat:'Hi there',chatCount:10,time:'18:05'},
-  {id:'4',Name:'Zahra',lastChat:'Hi there',chatCount:10,time:'18:05'}
-]
+// const Data=[
+//   {id:'1',Name:'Reza',lastChat:'Hi there',chatCount:10,time:'18:05'},
+//   {id:'2',Name:'Mohammad',lastChat:'Hi there',chatCount:10,time:'18:05'},
+//   {id:'3',Name:'Pegah',lastChat:'Hi there',chatCount:10,time:'18:05'},
+//   {id:'4',Name:'Zahra',lastChat:'Hi there',chatCount:10,time:'18:05'}
+// ]
 
 
 const Wrapper = styled.div`
@@ -27,7 +27,7 @@ const HR = styled.hr`
   color: #e5c3c3;
 `;
 
-export default function LeftSide({data,mode,kw,itmId}) {
+export default function LeftSide({data,mode,kw,itmId,user}) {
 
   const dispatch=React.useContext(PropsContext);
 
@@ -54,8 +54,9 @@ export default function LeftSide({data,mode,kw,itmId}) {
           <InputSearch onSearch={handleSearchClick} kyword={kw}/>  }
         {/* {mode==='input' && <Search/>} */} 
         <HR />
-       <List  data={Data} itemid={itmId}/>
+       <List  datas={data} itemid={itmId} usr={user}/>
         {/* <HR/> */}
+        {/* data={Data} */}
       </Wrapper>
     </div>
   );

@@ -15,15 +15,15 @@ const HR = styled.hr`
   color: #e5c3c3;
 `;
 
-export default function List({ data,itemid}) {
+export default function List({ datas=[],itemid,usr=[]}) {
   const dispatch=useContext(PropsContext);
 
   const handleIdClick=(id)=>{
-      const res=data.find(x=>x.ID===id);
+      let res=datas.find(x=>x.ID===id);
       
       dispatch({
         type:ACTIONS.ITEM_CLICK,
-        payload:res
+        payload:[res,id]
       })
       console.log(res)
   }
@@ -31,7 +31,7 @@ export default function List({ data,itemid}) {
   return (
         <div>
           <Ul>
-            {data.map((item) => {
+            {datas.map((item) => {
               return (
                 <>
                   <ListItem
