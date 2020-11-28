@@ -1,3 +1,5 @@
+import { faNewspaper } from "@fortawesome/free-solid-svg-icons";
+
 export function reducer(state,action){
     switch(action.type){
         case ACTIONS.INPUT_CHANGE:
@@ -23,8 +25,13 @@ export function reducer(state,action){
            case ACTIONS.ITEM_CLICK:
                return{
                    ...state,
-                   itemId:action.payload
+                   Data:state.Data.find(x=>x.id===action.payload)
                }   
+            case ACTIONS.CLOSE_CONTENT:
+                return{
+                    ...state,
+                    status:action.payload
+                }
                 
 
          default :
@@ -38,5 +45,6 @@ export const ACTIONS={
     FORWARD_MESSAGE:"FORWARD_MESSAGE",
     CHANGE_MODE:"CHANGE_MODE",
     INPUTS_CHANGE:"INPUTS_CHANGE",
-    ITEM_CLICK:"ITEM_CLICK"
+    ITEM_CLICK:"ITEM_CLICK",
+    CLOSE_CONTENT:"  CLOSE_CONTENT"
 }

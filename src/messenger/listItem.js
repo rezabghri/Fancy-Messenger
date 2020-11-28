@@ -1,4 +1,4 @@
-import React, { useReducer } from "react";
+import React, { useReducer,useContext } from "react";
 import { PropsContext } from "./context";
 import { ACTIONS } from "./reducer";
 import styled from "styled-components";
@@ -33,15 +33,18 @@ export default function ListItem({
   lastChat,
   chatCount,
   time,
-  onId,
+  onItem,
   isOvered,
 }) {
+
+  const dispatch=useContext(PropsContext);
+
+
   return (
-  
-     
+
         <div>
           {/* onMouseOver={()=>dispatch({type:ACTIONS.COLOR_CHANGE,payload:itemId})} */}
-          <Li style={{ listStyleType: "none" }} onClick={()=>onId()}>
+          <Li style={{ listStyleType: "none" }} onClick={()=>onItem()} >
             <Row className="row col-lg-12 col-md-12">
               <div>
                 <Image

@@ -18,12 +18,12 @@ const HR = styled.hr`
 export default function List({ datas=[],itemid,usr=[]}) {
   const dispatch=useContext(PropsContext);
 
-  const handleIdClick=(id)=>{
+  const handleItemClick=(id)=>{
       let res=datas.find(x=>x.ID===id);
-      
+     
       dispatch({
         type:ACTIONS.ITEM_CLICK,
-        payload:[res,id]
+        payload:id
       })
       console.log(res)
   }
@@ -41,7 +41,7 @@ export default function List({ datas=[],itemid,usr=[]}) {
                     lastChat={item.lastChat}
                     time={item.time}
                     chatCount={item.chatCount}
-                    onId={handleIdClick}
+                    onItem={handleItemClick}
                   />
                   <HR />
                 </>

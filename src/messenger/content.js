@@ -12,9 +12,24 @@ const Wrapper=styled.div`
       
 `
 
-export default function Content({listItem=[],keyword,id}) {
+const Div=styled.div`
+   height:75px;
+   background-color: #039a8f;
+`
+
+export default function Content({listItem=[],keyword,id,status}) {
 
     const dispatch=useContext(PropsContext);
+
+
+    const handleClose=()=>{
+        dispatch({
+            type:ACTIONS.CLOSE_CONTENT,
+            payload:'close'
+        })
+    }
+
+  
 
 //    const handleChange=e=>{
 //        dispatch({
@@ -28,23 +43,24 @@ export default function Content({listItem=[],keyword,id}) {
 //             type:ACTIONS.FORWARD_MESSAGE,
 //               payload:keyword    
 //          })
-//         if(e.key==='Enter'){
+//         if(e.keyCode===13){
 //          console.log("enter pressed")
-//         listItem.push(keyword);
+//          const newList=[...listItem];
+//         newList.push(keyword);
 //         // {<LiItem liItem/>}
 // }
 // }
 
     return (
-        <div>
-            <Wrapper>
-                <HeaderContent Id={id}/>
-                <ChatContent liItem={listItem} />
+        <div >
+              {status==='open' &&
+            <Wrapper >
+                <HeaderContent Id={id} onClose={handleClose}/>
+                <ChatContent liItem={listItem} kword={keyword}/>
 
                 <InputMessage   kword={keyword}  />
-              
-
-            </Wrapper>
+            </Wrapper>}
+            {status==='close' && <Div ></Div>}
         </div>
     )
 }

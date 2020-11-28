@@ -40,15 +40,14 @@ export default function InputMessage({liItem=[],kword,onPress}) {
   },[])
 
   const handleKeyDown=(e)=>{
-      if(e.key==='Enter'){
+      if(e.keyCode===13){
         console.log("enter pressed")
-         let res= liItem.push(kword);
-         console.log(res);
-       //  {<LiItem liItem/>}
+        const newList=[...liItem];
+         newList.push({kword});
        }
        dispatch({
            type:ACTIONS.FORWARD_MESSAGE,
-           payload:kword    
+           payload:kword
        })
       }
 

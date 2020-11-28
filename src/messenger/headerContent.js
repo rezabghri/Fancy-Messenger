@@ -21,7 +21,7 @@ const Span = styled.span`
   font-weight: 700;
 `;
 
-export default function HeaderContent({Id}) {
+export default function HeaderContent({Id,onClose}) {
   return (
     <div>
       <Div className="row">
@@ -29,11 +29,13 @@ export default function HeaderContent({Id}) {
           <FontAwesomeIcon
             icon={faTimes}
             className="fa-lg"
+            onClick={()=>onClose()}
             style={{
               justifyContent: "center",
               alignItems: "center",
               marginTop: 20,
               color: "#0ec1aa",
+              cursor:"pointer"
             }}
           />
         </div>

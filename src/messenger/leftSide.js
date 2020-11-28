@@ -29,6 +29,7 @@ const HR = styled.hr`
 
 export default function LeftSide({data,mode,kw,itmId,user}) {
 
+   
   const dispatch=React.useContext(PropsContext);
 
    const handleInputSearchClick=()=>{
@@ -51,10 +52,10 @@ export default function LeftSide({data,mode,kw,itmId,user}) {
         {mode==='input' && <Search onInputSearch={handleInputSearchClick}/>}
       
          {mode==='search'&&
-          <InputSearch onSearch={handleSearchClick} kyword={kw}/>  }
+          <InputSearch onSearch={handleSearchClick} kyword={kw} />  }
         {/* {mode==='input' && <Search/>} */} 
         <HR />
-       <List  datas={data} itemid={itmId} usr={user}/>
+       <List  datas={data} itemid={itmId} usr={user} />
         {/* <HR/> */}
         {/* data={Data} */}
       </Wrapper>

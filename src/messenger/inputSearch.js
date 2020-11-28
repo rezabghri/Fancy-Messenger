@@ -5,6 +5,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faArrowLeft} from '@fortawesome/free-solid-svg-icons';
 import {PropsContext} from './context'
 import {ACTIONS} from './reducer';
+import List from './list';
 
 
 const Div = styled.div`
@@ -26,6 +27,10 @@ const Input=styled.input`
 
 export default function InputSearch({kyword,onSearch}) {
     const dispatch=useContext(PropsContext);
+
+   
+  
+
     return (
         <div>
             <Div className="row">
@@ -37,6 +42,7 @@ export default function InputSearch({kyword,onSearch}) {
                         type:ACTIONS.INPUTS_CHANGE,
                         payload:e.target.value
                     })}/>
+                   
                 </div>
 
             </Div>

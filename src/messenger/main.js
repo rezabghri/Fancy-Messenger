@@ -23,6 +23,7 @@ export default function Main() {
     itemId:null,
     listItem:[],
     mode:'input',
+    status:'open',
     Data:[
       {id:'1',Name:'Reza',lastChat:'Hi there',chatCount:10,time:'18:05'},
       {id:'2',Name:'Mohammad',lastChat:'Hi there',chatCount:10,time:'18:05'},
@@ -46,7 +47,7 @@ export default function Main() {
             {/* <List data={Data}/> */}
           </div>
           <div className="col-md-8" style={{ border: "2px solid #e5c3c3" }}>
-            <Content listItem={state.listItem}   keyword={state.keyword} id={state.itemId}/>
+            <Content listItem={state.listItem}   keyword={state.keyword} id={state.itemId} status={state.status}/>
           
           </div>
         </div>
