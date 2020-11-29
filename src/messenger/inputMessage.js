@@ -41,18 +41,31 @@ export default function InputMessage({liItem=[],kword,onPress}) {
 
   const handleKeyDown=(e)=>{
       if(e.keyCode===13){
-        console.log("enter pressed")
-        const newList=[...liItem];
-         newList.push({kword});
-       }
-       dispatch({
-           type:ACTIONS.FORWARD_MESSAGE,
+      dispatch({
+          type:ACTIONS.FORWARD_MESSAGE,
            payload:kword
-       })
+            })
+
+            handleSubmitMessage();
+        }
+
+            //handleSubmitMessage();
+
+            // if(e.keyCode===13){
+            //     console.log("enter pressed")
+            //      const newList=[...liItem];
+            //       newList.push(kword);
+            //     }
+      
       }
 
       const handleSubmitMessage=()=>{
-
+           if(kword!==''){
+               dispatch({
+                   type:ACTIONS.SEND_MESSAGE,
+                   payload:kword
+               })
+           }
       }
    
 

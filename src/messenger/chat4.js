@@ -38,7 +38,7 @@ export const LiItem = styled.li`
   margin-top: 105px;
 `;
 
-export default function ChatContent({ kword,liItem=[],dispatch,res}) {
+export default function Chat4({ kword,liItem,dispatch,res}) {
   return (
     // <PropsContext.Consumer>
       // {(dispatch)=>
@@ -50,7 +50,8 @@ export default function ChatContent({ kword,liItem=[],dispatch,res}) {
               <Section>
                 <span style={{ justifyContent: "center" }}>Hi there</span>
               </Section>
-              <Li>Hi there</Li>
+              {/* <Li>Hi there</Li>
+              <Li>Hi there</Li> */}
             </ul>
           </div>
           <div className="col-md-6">
@@ -68,11 +69,10 @@ export default function ChatContent({ kword,liItem=[],dispatch,res}) {
                 {liItem}
                
               </LiItem> */}
-              {/* {liItem.map(item=>{
-                return <LiItem key={Math.random().toString()}  style={{ justifyContent: "center"}} >{item.kword}</LiItem>
-               })} */}
-      
-              {/* <LiItem> {kword}</LiItem> */}
+              {/* { liItem.map(item=>{
+                return <LiItem  style={{ justifyContent: "center"}}>{item.kword}</LiItem>
+              })} */}
+              {/* <liItem/> */}
             </ul>
           </div>
         </div>

@@ -21,7 +21,7 @@ const Span = styled.span`
   font-weight: 700;
 `;
 
-export default function HeaderContent({Id,onClose}) {
+export default function HeaderContent({Id,onClose,dytaa}) {
   return (
     <div>
       <Div className="row">
@@ -41,7 +41,8 @@ export default function HeaderContent({Id,onClose}) {
         </div>
         <div className="col-md-6">
             <Image src={avatar} style={{paddingBottom:5}} />
-            <Span>Reza</Span>
+            {Id===dytaa.id &&
+            <Span>{dytaa.Name}</Span>}
         </div>
         <div className="col-md-3">
           <FontAwesomeIcon

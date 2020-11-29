@@ -8,6 +8,11 @@ export function reducer(state,action){
                 keyword:action.payload
             }
          case ACTIONS.FORWARD_MESSAGE:
+            // if(action.payload.e.key==='Enter'){
+            //     console.log("enter pressed")
+            //      const newList=[...state.listItem];
+            //       newList.push(state.keyword);
+            //     }
                 return{
                     ...state,
                  listItem:action.payload
@@ -25,14 +30,21 @@ export function reducer(state,action){
            case ACTIONS.ITEM_CLICK:
                return{
                    ...state,
-                   Data:state.Data.find(x=>x.id===action.payload)
+                   itemId:state.Data.find(x=>x.id===action.payload)
                }   
             case ACTIONS.CLOSE_CONTENT:
                 return{
                     ...state,
-                    status:action.payload
+                    status:action.payload.close,
+                    itemId:action.payload.id
                 }
-                
+             case ACTIONS.SEND_MESSAGE:
+                 const newList=[...state.listItem]
+                 return{
+                     ...state,
+                     keyword:'',
+                     listItem:newList.push(action.payload)
+                 }   
 
          default :
           return state;   
@@ -46,5 +58,6 @@ export const ACTIONS={
     CHANGE_MODE:"CHANGE_MODE",
     INPUTS_CHANGE:"INPUTS_CHANGE",
     ITEM_CLICK:"ITEM_CLICK",
-    CLOSE_CONTENT:"  CLOSE_CONTENT"
+    CLOSE_CONTENT:"  CLOSE_CONTENT",
+    SEND_MESSAGE:"SEND_MESSAGE"
 }

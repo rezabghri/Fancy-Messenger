@@ -18,20 +18,30 @@ const HR = styled.hr`
 export default function List({ datas=[],itemid,usr=[]}) {
   const dispatch=useContext(PropsContext);
 
-  const handleItemClick=(id)=>{
-      let res=datas.find(x=>x.ID===id);
+  // const handleItemClick=(id)=>{
+  //     let res=datas.find(x=>x.id===id);
      
-      dispatch({
-        type:ACTIONS.ITEM_CLICK,
-        payload:id
-      })
-      console.log(res)
-  }
+  //     dispatch({
+  //       type:ACTIONS.ITEM_CLICK,
+  //       payload:id
+  //     })
+  //     console.log(res)
+  // }
 
   return (
         <div>
-          <Ul>
-            {datas.map((item) => {
+          <Ul >
+
+             <ListItem dataa={datas}
+              //  onItem={handleItemClick}
+               
+             
+              />
+
+
+
+
+            {/* {datas.map((item) => {
               return (
                 <>
                   <ListItem
@@ -46,7 +56,7 @@ export default function List({ datas=[],itemid,usr=[]}) {
                   <HR />
                 </>
               );
-            })}
+            })} */}
           </Ul>
         </div>
   );
